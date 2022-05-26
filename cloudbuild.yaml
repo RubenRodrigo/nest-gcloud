@@ -8,6 +8,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'nest-gcloud', '--image', 'gcr.io/sylvan-plane-349116/nest-gcloud', '--region', 'us-central1', '--platform', 'managed', '--port', '3001']
+  args: ['run', 'deploy', 'nest-gcloud', '--image', 'gcr.io/sylvan-plane-349116/nest-gcloud', '--region', 'us-central1', '--platform', 'managed', '--port', '3002']
 images:
 - gcr.io/sylvan-plane-349116/nest-gcloud
