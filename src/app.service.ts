@@ -4,6 +4,6 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   getHello(): string {
     console.log(process.env.NODE_ENV);
-    return 'Hello World!  FUCK GCLOUD RUN';
+    return `Hello World! FUCK GCLOUD RUN ${process.env.NODE_ENV}`;
   }
 }

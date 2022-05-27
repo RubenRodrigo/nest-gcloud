@@ -1,15 +1,17 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  env:
-  - 'NODE_ENV=DEVELOP'
   args: ['build', '-t', 'gcr.io/sylvan-plane-349116/nest-gcloud', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
+  env:
+  - 'NODE_ENV=DEVELOP'
   args: ['push', 'gcr.io/sylvan-plane-349116/nest-gcloud']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
+  env:
+  - 'NODE_ENV=DEVELOP'
   args: ['run', 'deploy', 'nest-gcloud', '--image', 'gcr.io/sylvan-plane-349116/nest-gcloud', '--region', 'us-central1', '--platform', 'managed', '--port', '3002']
 images:
 - gcr.io/sylvan-plane-349116/nest-gcloud
