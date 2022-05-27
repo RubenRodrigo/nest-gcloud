@@ -7,10 +7,6 @@ COPY package.json .
 RUN yarn
 
 COPY . .
-
-ARG port
-
 RUN yarn build
-EXPOSE ${port}
 
 CMD [ "yarn", "start:prod" ]
