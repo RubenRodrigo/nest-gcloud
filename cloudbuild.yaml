@@ -1,6 +1,8 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
+  env:
+  - 'NODE_ENV=DEVELOP'
   args: ['build', '-t', 'gcr.io/sylvan-plane-349116/nest-gcloud', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
